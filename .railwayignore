@@ -1,0 +1,9 @@
+# لا يُرفع أي ملف بيئة: المفتاح يُضبط في متغيرات الخدمة على Railway فقط.
+.env
+.env.*
+!.env.example
+
+node_modules
+.next
+eval/results
+*.tsbuildinfo

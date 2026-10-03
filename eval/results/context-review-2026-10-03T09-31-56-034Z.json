@@ -1,0 +1,684 @@
+{
+ "ranAt": "2026-10-03T09:31:56.034Z",
+ "baseUrl": "http://localhost:3210",
+ "model": "claude-opus-5-5",
+ "total": 40,
+ "unavailable": 0,
+ "overall": {
+  "correct": 38,
+  "of": 40,
+  "accuracy": "95.0%"
+ },
+ "perSignal": [
+  {
+   "signal": "interpretive_inference",
+   "cases": 5,
+   "correct": 5,
+   "accuracy": "100.0%",
+   "precision": "100.0%"
+  },
+  {
+   "signal": "personal_religious_question",
+   "cases": 4,
+   "correct": 4,
+   "accuracy": "100.0%",
+   "precision": "80.0%"
+  },
+  {
+   "signal": "possible_hadith_attribution",
+   "cases": 5,
+   "correct": 5,
+   "accuracy": "100.0%",
+   "precision": "100.0%"
+  },
+  {
+   "signal": "context_requires_specialist",
+   "cases": 6,
+   "correct": 5,
+   "accuracy": "83.3%",
+   "precision": "100.0%"
+  },
+  {
+   "signal": "none",
+   "cases": 20,
+   "correct": 19,
+   "accuracy": "95.0%",
+   "precision": "95.0%"
+  }
+ ],
+ "confusionMatrix": {
+  "interpretive_inference": {
+   "interpretive_inference": 5,
+   "personal_religious_question": 0,
+   "possible_hadith_attribution": 0,
+   "context_requires_specialist": 0,
+   "none": 0
+  },
+  "personal_religious_question": {
+   "interpretive_inference": 0,
+   "personal_religious_question": 4,
+   "possible_hadith_attribution": 0,
+   "context_requires_specialist": 0,
+   "none": 0
+  },
+  "possible_hadith_attribution": {
+   "interpretive_inference": 0,
+   "personal_religious_question": 0,
+   "possible_hadith_attribution": 5,
+   "context_requires_specialist": 0,
+   "none": 0
+  },
+  "context_requires_specialist": {
+   "interpretive_inference": 0,
+   "personal_religious_question": 0,
+   "possible_hadith_attribution": 0,
+   "context_requires_specialist": 5,
+   "none": 1
+  },
+  "none": {
+   "interpretive_inference": 0,
+   "personal_religious_question": 1,
+   "possible_hadith_attribution": 0,
+   "context_requires_specialist": 0,
+   "none": 19
+  }
+ },
+ "falsePositives": [
+  "P5"
+ ],
+ "falseNegatives": [
+  "N17"
+ ],
+ "wrongSignal": [],
+ "multipleFindings": [],
+ "latencyMs": {
+  "mean": 3194,
+  "median": 3004,
+  "min": 2027,
+  "max": 9875
+ },
+ "errors": [
+  {
+   "id": "P5",
+   "text": "منذ سنتين لم أخرج زكاة مدخراتي لأنني لم أكن أعلم بوجوبها",
+   "expected": "none",
+   "actual": "personal_religious_question",
+   "findings": [
+    {
+     "index": 0,
+     "signal": "personal_religious_question",
+     "evidence": "منذ سنتين لم أخرج زكاة مدخراتي"
+    }
+   ]
+  },
+  {
+   "id": "N17",
+   "text": "كم عدد ركعات صلاة التراويح",
+   "expected": "context_requires_specialist",
+   "actual": "none",
+   "findings": []
+  }
+ ],
+ "rows": [
+  {
+   "id": "I1",
+   "text": "قوله تعالى إن مع العسر يسرا يعني أن كل ضيق يعقبه فرج قريب لا محالة",
+   "expected": "interpretive_inference",
+   "actual": "interpretive_inference",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "interpretive_inference",
+     "evidence": "يعني أن كل ضيق يعقبه فرج قريب لا محالة"
+    }
+   ],
+   "http": 200,
+   "ms": 4260,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "I2",
+   "text": "حين نقرأ ادعوني أستجب لكم ندرك أن الدعاء لا يُرد مهما كان حال صاحبه",
+   "expected": "interpretive_inference",
+   "actual": "interpretive_inference",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "interpretive_inference",
+     "evidence": "ندرك أن الدعاء لا يُرد مهما كان حال صاحبه"
+    }
+   ],
+   "http": 200,
+   "ms": 2840,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "I3",
+   "text": "تعلّمنا سورة العصر أن النجاح الدنيوي بلا إيمان خسارة محققة",
+   "expected": "interpretive_inference",
+   "actual": "interpretive_inference",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "interpretive_inference",
+     "evidence": "تعلّمنا سورة العصر أن النجاح الدنيوي بلا إيمان خسارة محققة"
+    }
+   ],
+   "http": 200,
+   "ms": 2835,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "I4",
+   "text": "ولأن الله مع الصابرين فالمبتلى أقرب إلى الله من المعافى",
+   "expected": "interpretive_inference",
+   "actual": "interpretive_inference",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "interpretive_inference",
+     "evidence": "فالمبتلى أقرب إلى الله من المعافى"
+    }
+   ],
+   "http": 200,
+   "ms": 3194,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "I5",
+   "text": "في قصة يوسف رسالة واضحة لكل موظف مظلوم بأن الترقية آتية",
+   "expected": "interpretive_inference",
+   "actual": "interpretive_inference",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "interpretive_inference",
+     "evidence": "في قصة يوسف رسالة واضحة لكل موظف مظلوم بأن الترقية آتية"
+    }
+   ],
+   "http": 200,
+   "ms": 3591,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "P1",
+   "text": "هل يصح صيامي إذا نسيت وشربت ماء في نهار رمضان",
+   "expected": "personal_religious_question",
+   "actual": "personal_religious_question",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "personal_religious_question",
+     "evidence": "هل يصح صيامي إذا نسيت وشربت ماء"
+    }
+   ],
+   "http": 200,
+   "ms": 2929,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "P2",
+   "text": "اقترضت من البنك لشراء بيت قبل أن أعرف التفاصيل فما المخرج الآن",
+   "expected": "personal_religious_question",
+   "actual": "personal_religious_question",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "personal_religious_question",
+     "evidence": "اقترضت من البنك لشراء بيت قبل أن أعرف التفاصيل فما المخرج الآن"
+    }
+   ],
+   "http": 200,
+   "ms": 3568,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "P3",
+   "text": "والدي أوصى بثلث ماله لأخي الأصغر وحده ونحن خمسة إخوة فكيف نتصرف",
+   "expected": "personal_religious_question",
+   "actual": "personal_religious_question",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "personal_religious_question",
+     "evidence": "والدي أوصى بثلث ماله لأخي الأصغر وحده ونحن خمسة إخوة فكيف نتصرف"
+    }
+   ],
+   "http": 200,
+   "ms": 3337,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "P4",
+   "text": "طلقت زوجتي وأنا في حالة غضب شديد ولا أدري أين أقف الآن",
+   "expected": "personal_religious_question",
+   "actual": "personal_religious_question",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "personal_religious_question",
+     "evidence": "طلقت زوجتي وأنا في حالة غضب شديد"
+    }
+   ],
+   "http": 200,
+   "ms": 3299,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "P5",
+   "text": "منذ سنتين لم أخرج زكاة مدخراتي لأنني لم أكن أعلم بوجوبها",
+   "expected": "none",
+   "actual": "personal_religious_question",
+   "correct": false,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "personal_religious_question",
+     "evidence": "منذ سنتين لم أخرج زكاة مدخراتي"
+    }
+   ],
+   "http": 200,
+   "ms": 3324,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "H1",
+   "text": "قال عليه الصلاة والسلام الدين النصيحة",
+   "expected": "possible_hadith_attribution",
+   "actual": "possible_hadith_attribution",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "possible_hadith_attribution",
+     "evidence": "قال عليه الصلاة والسلام الدين النصيحة"
+    }
+   ],
+   "http": 200,
+   "ms": 3093,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "H2",
+   "text": "علّمنا نبينا أن الابتسامة في وجه الآخرين صدقة",
+   "expected": "possible_hadith_attribution",
+   "actual": "possible_hadith_attribution",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "possible_hadith_attribution",
+     "evidence": "علّمنا نبينا أن الابتسامة في وجه الآخرين صدقة"
+    }
+   ],
+   "http": 200,
+   "ms": 3143,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "H3",
+   "text": "كان من هديه أنه يسلّم على الصبيان إذا مرّ بهم",
+   "expected": "possible_hadith_attribution",
+   "actual": "possible_hadith_attribution",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "possible_hadith_attribution",
+     "evidence": "كان من هديه أنه يسلّم على الصبيان إذا مرّ بهم"
+    }
+   ],
+   "http": 200,
+   "ms": 3476,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "H4",
+   "text": "وفي السنة ما يحث على إماطة الأذى عن الطريق وعدّه من شعب الإيمان",
+   "expected": "possible_hadith_attribution",
+   "actual": "possible_hadith_attribution",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "possible_hadith_attribution",
+     "evidence": "وفي السنة ما يحث على إماطة الأذى عن الطريق"
+    }
+   ],
+   "http": 200,
+   "ms": 3325,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "H5",
+   "text": "يُروى عن النبي صلى الله عليه وسلم أن طلب العلم مطلوب ولو في الصين",
+   "expected": "possible_hadith_attribution",
+   "actual": "possible_hadith_attribution",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "possible_hadith_attribution",
+     "evidence": "يُروى عن النبي صلى الله عليه وسلم"
+    }
+   ],
+   "http": 200,
+   "ms": 3075,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "S1",
+   "text": "تهنئة غير المسلمين بأعيادهم محرمة بلا خلاف",
+   "expected": "context_requires_specialist",
+   "actual": "context_requires_specialist",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "context_requires_specialist",
+     "evidence": "تهنئة غير المسلمين بأعيادهم محرمة بلا خلاف"
+    }
+   ],
+   "http": 200,
+   "ms": 3578,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "S2",
+   "text": "من ترك صلاة الجماعة بلا عذر فصلاته باطلة",
+   "expected": "context_requires_specialist",
+   "actual": "context_requires_specialist",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "context_requires_specialist",
+     "evidence": "من ترك صلاة الجماعة بلا عذر فصلاته باطلة"
+    }
+   ],
+   "http": 200,
+   "ms": 3004,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "S3",
+   "text": "التأمين التجاري كله مخالف للشريعة ولا يحل التعامل به",
+   "expected": "context_requires_specialist",
+   "actual": "context_requires_specialist",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "context_requires_specialist",
+     "evidence": "التأمين التجاري كله مخالف للشريعة ولا يحل التعامل به"
+    }
+   ],
+   "http": 200,
+   "ms": 3382,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "S4",
+   "text": "الأصح أن المسافر يقصر صلاته مهما طالت مدة إقامته",
+   "expected": "context_requires_specialist",
+   "actual": "context_requires_specialist",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "context_requires_specialist",
+     "evidence": "الأصح أن المسافر يقصر صلاته مهما طالت مدة إقامته"
+    }
+   ],
+   "http": 200,
+   "ms": 2027,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "S5",
+   "text": "أتباع هذه الطريقة خارجون عن أهل السنة",
+   "expected": "context_requires_specialist",
+   "actual": "context_requires_specialist",
+   "correct": true,
+   "findings": [
+    {
+     "index": 0,
+     "signal": "context_requires_specialist",
+     "evidence": "أتباع هذه الطريقة خارجون عن أهل السنة"
+    }
+   ],
+   "http": 200,
+   "ms": 3278,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N1",
+   "text": "تأجل اجتماع مجلس الإدارة إلى يوم الخميس القادم",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2719,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N2",
+   "text": "سجّل المنتخب هدفين في الشوط الثاني وتأهل إلى النهائي",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2290,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N3",
+   "text": "الحمد لله انتهينا من المشروع قبل الموعد وإن شاء الله نبدأ المرحلة التالية غدا",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 3820,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N4",
+   "text": "تأخرت عن تسليم التقرير أسبوعا فماذا أقول لمديري",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 9875,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N5",
+   "text": "ارتفاع المبيعات هذا الشهر يدل على نجاح الحملة الإعلانية",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2674,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N6",
+   "text": "يمنع التدخين داخل المبنى ومن يخالف يدفع غرامة",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2593,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N7",
+   "text": "دار بيني وبين المدير حديث طويل عن خطة العام القادم",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2369,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N8",
+   "text": "قال المتنبي على قدر أهل العزم تأتي العزائم",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2786,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N9",
+   "text": "افتتحت الجمعية حلقة جديدة لتحفيظ القرآن في مسجد الحي",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2747,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N10",
+   "text": "اللهم بارك لنا في أوقاتنا وأعنّا على إتمام العمل",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 4790,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N11",
+   "text": "الصلوات المفروضة خمس في اليوم والليلة",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 3463,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N12",
+   "text": "ولد النبي صلى الله عليه وسلم في مكة المكرمة عام الفيل",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2693,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N13",
+   "text": "شهر رمضان هو الشهر التاسع في التقويم الهجري",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2454,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N14",
+   "text": "احرصوا على صلة أرحامكم وزيارة أقاربكم في العيد",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2343,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N15",
+   "text": "أعلنت دار الإفتاء أن غدا أول أيام عيد الفطر",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2939,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N16",
+   "text": "اختلف الفقهاء قديما في مسائل كثيرة وهذا من سعة الشريعة",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2481,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N17",
+   "text": "كم عدد ركعات صلاة التراويح",
+   "expected": "context_requires_specialist",
+   "actual": "none",
+   "correct": false,
+   "findings": [],
+   "http": 200,
+   "ms": 2468,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N18",
+   "text": "حرام عليك تتركني أنتظر ساعة كاملة في المطار",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2605,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N19",
+   "text": "أريد أن أحفظ جزء عم خلال شهر فما أفضل خطة للمراجعة",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2407,
+   "model": "claude-opus-5-5"
+  },
+  {
+   "id": "N20",
+   "text": "كان جدي يقول إن الصبر مفتاح الفرج",
+   "expected": "none",
+   "actual": "none",
+   "correct": true,
+   "findings": [],
+   "http": 200,
+   "ms": 2700,
+   "model": "claude-opus-5-5"
+  }
+ ]
+}
