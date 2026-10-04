@@ -1,0 +1,582 @@
+{
+  "description": "حالات اختبار التحقق القرآني الحتمي (محرك المطابقة والتصنيف)، بلا أي نموذج ذكاء اصطناعي. تُشغَّل بـ scripts/eval-verification.mjs على كود المشروع نفسه. الحقل expected هو حالة كل مقطع بالترتيب بعد تقسيم النص.",
+  "statuses": [
+    "verified",
+    "review",
+    "unsourced",
+    "expert",
+    "uncovered",
+    "unevaluated"
+  ],
+  "groups": {
+    "regression": "مجموعة Regression المستخدمة أثناء التطوير (33 حالة).",
+    "attribution": "التمييز بين نسبة نص إلى القرآن صراحةً والحديث عن القرآن كموضوع.",
+    "manual-2026-10-04": "حالات اختُبرت يدويًا على النسخة الحية في 4 أكتوبر 2026 (اليوم الأول من التحدي)، وحُوّلت إلى اختبار آلي.",
+    "spelling": "الكتابة الطبيعية للمستخدم بلا تشكيل ولا همزات."
+  },
+  "corpus": {
+    "description": "اختبار كامل النص: كل آية من المصدر تُدخل بنصها ويُسجَّل تصنيفها.",
+    "ayat": 6236,
+    "expected": {
+      "verified": 6194,
+      "review": 38,
+      "unevaluated": 4
+    }
+  },
+  "cases": [
+    {
+      "id": "R1",
+      "group": "regression",
+      "name": "الإخلاص كاملة",
+      "text": "قل هو الله أحد الله الصمد لم يلد ولم يولد ولم يكن له كفوا أحد",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "R2",
+      "group": "regression",
+      "name": "الكوثر كاملة",
+      "text": "إنا أعطيناك الكوثر فصل لربك وانحر إن شانئك هو الأبتر",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "R3",
+      "group": "regression",
+      "name": "آية الكرسي",
+      "text": "الله لا إله إلا هو الحي القيوم لا تأخذه سنة ولا نوم له ما في السماوات وما في الأرض من ذا الذي يشفع عنده إلا بإذنه يعلم ما بين أيديهم وما خلفهم ولا يحيطون بشيء من علمه إلا بما شاء وسع كرسيه السماوات والأرض ولا يئوده حفظهما وهو العلي العظيم",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "R3b",
+      "group": "regression",
+      "name": "بداية آية الكرسي",
+      "text": "الله لا إله إلا هو الحي القيوم لا تأخذه سنة ولا نوم",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "R4",
+      "group": "regression",
+      "name": "الله الصمد",
+      "text": "الله الصمد",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "R5",
+      "group": "regression",
+      "name": "خطأ: شديدا",
+      "text": "يا أيها الذين آمنوا اتقوا الله وقولوا قولا شديدا",
+      "expected": [
+        "review"
+      ],
+      "readiness": 50
+    },
+    {
+      "id": "R5b",
+      "group": "regression",
+      "name": "خطأ: نعاس",
+      "text": "الله لا إله إلا هو الحي القيوم لا تأخذه سنة ولا نعاس له ما في السماوات وما في الأرض",
+      "expected": [
+        "review"
+      ],
+      "readiness": 50
+    },
+    {
+      "id": "R5c",
+      "group": "regression",
+      "name": "خطأ وسط آية بعد آية صحيحة",
+      "text": "إنا أعطيناك الكوثر فصل لربك واشكر إن شانئك هو الأبتر",
+      "expected": [
+        "review"
+      ],
+      "readiness": 50
+    },
+    {
+      "id": "R6",
+      "group": "regression",
+      "name": "قرآن + استنتاج",
+      "text": "إنا أعطيناك الكوثر فصل لربك وانحر وهذا يدل على وجوب شكر النعمة",
+      "expected": [
+        "expert"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "R6b",
+      "group": "regression",
+      "name": "قرآن ثم استنتاج",
+      "text": "قال تعالى: إنا أعطيناك الكوثر، وهذا يدل على عظم المنة",
+      "expected": [
+        "verified",
+        "expert"
+      ],
+      "readiness": 50
+    },
+    {
+      "id": "R7",
+      "group": "regression",
+      "name": "حديث",
+      "text": "قال رسول الله صلى الله عليه وسلم: إنما الأعمال بالنيات وإنما لكل امرئ ما نوى",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "R8",
+      "group": "regression",
+      "name": "دنيوية",
+      "text": "شركتنا حققت أرباحا قياسية في الربع الثالث من هذا العام",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "R8b",
+      "group": "regression",
+      "name": "دنيوية ملتبسة",
+      "text": "صدر حكم المحكمة في خلاف تجاري وهذا دليل على قوة موقف الشركة",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "R9",
+      "group": "regression",
+      "name": "سؤال شخصي",
+      "text": "هل يجوز لي أن أجمع بين الصلاتين في السفر؟",
+      "expected": [
+        "expert"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "R10",
+      "group": "regression",
+      "name": "حكم عام",
+      "text": "ما حكم صلاة الجماعة عند الفقهاء",
+      "expected": [
+        "expert"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "R11",
+      "group": "regression",
+      "name": "منسوب للقرآن وليس فيه",
+      "text": "قال تعالى: اعمل لدنياك كأنك تعيش أبدا واعمل لآخرتك كأنك تموت غدا",
+      "expected": [
+        "unsourced"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "R12",
+      "group": "regression",
+      "name": "مسجد حرام",
+      "text": "سبحان الذي أسرى بعبده ليلا من المسجد الحرام إلى المسجد الأقصى الذي باركنا حوله لنريه من آياتنا إنه هو السميع البصير",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "N1",
+      "group": "regression",
+      "name": "طسم تلك",
+      "text": "طسم تلك آيات الكتاب المبين",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "N2",
+      "group": "regression",
+      "name": "الم تلك",
+      "text": "الم تلك آيات الكتاب الحكيم",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "N3",
+      "group": "regression",
+      "name": "الم الله",
+      "text": "الم الله لا إله إلا هو الحي القيوم",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "N4",
+      "group": "regression",
+      "name": "الرحمن 1-4",
+      "text": "الرحمن علم القرآن خلق الإنسان علمه البيان",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "N5",
+      "group": "regression",
+      "name": "الم غلبت الروم",
+      "text": "الم غلبت الروم",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "N6",
+      "group": "regression",
+      "name": "مدهامتان",
+      "text": "مدهامتان فبأي آلاء ربكما تكذبان",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "F1",
+      "group": "regression",
+      "name": "كلمة: طه",
+      "text": "طه",
+      "expected": [
+        "unevaluated"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "F2",
+      "group": "regression",
+      "name": "كلمة: الرحمن",
+      "text": "الرحمن",
+      "expected": [
+        "unevaluated"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "F3",
+      "group": "regression",
+      "name": "حروف: حم عسق",
+      "text": "حم عسق",
+      "expected": [
+        "unevaluated"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "F4",
+      "group": "regression",
+      "name": "اسم طه في جملة",
+      "text": "قال طه إن المشروع سينتهي في الموعد المحدد",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "F5",
+      "group": "regression",
+      "name": "ثم نظر في جملة",
+      "text": "ثم نظر المدير في التقرير وطلب تعديله",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "F6",
+      "group": "regression",
+      "name": "الرحمن في جملة",
+      "text": "سافر عبد الرحمن علم الدين إلى الرياض أمس",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "F7",
+      "group": "regression",
+      "name": "كلمتان دنيويتان",
+      "text": "اجتماع الغد",
+      "expected": [
+        "unevaluated"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "F8",
+      "group": "regression",
+      "name": "القارعة في جملة",
+      "text": "كانت الخسارة هي القارعة التي أيقظت الفريق",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "F9",
+      "group": "regression",
+      "name": "يس في جملة",
+      "text": "حضر يس والقرآن الحكيم كان موضوع المحاضرة",
+      "expected": [
+        "review"
+      ],
+      "readiness": 50
+    },
+    {
+      "id": "F10",
+      "group": "regression",
+      "name": "جزئي ضعيف",
+      "text": "ولقد أرسلنا والله لا إله إلا هو وهذا كلام آخر طويل",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "POS1",
+      "group": "attribution",
+      "name": "قال تعالى + ليس قرآنا",
+      "text": "قال تعالى: اعمل لدنياك كأنك تعيش أبدا واعمل لآخرتك كأنك تموت غدا",
+      "expected": [
+        "unsourced"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "POS2",
+      "group": "attribution",
+      "name": "قال الله تعالى + ليس قرآنا",
+      "text": "قال الله تعالى: النظافة من الإيمان والوسخ من الشيطان",
+      "expected": [
+        "unsourced"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "POS3",
+      "group": "attribution",
+      "name": "ورد في القرآن + ليس قرآنا",
+      "text": "ورد في القرآن: اطلبوا العلم ولو في الصين",
+      "expected": [
+        "unsourced"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "POS4",
+      "group": "attribution",
+      "name": "الآية تقول + ليس قرآنا",
+      "text": "الآية تقول: الجنة تحت أقدام الأمهات",
+      "expected": [
+        "unsourced"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "POS5",
+      "group": "attribution",
+      "name": "قال تعالى + آية صحيحة",
+      "text": "قال الله تعالى: إنا أعطيناك الكوثر",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "POS6",
+      "group": "attribution",
+      "name": "ورد في القرآن الكريم + آية صحيحة",
+      "text": "ورد في القرآن الكريم: قل هو الله أحد",
+      "expected": [
+        "verified"
+      ],
+      "readiness": 100
+    },
+    {
+      "id": "POS7",
+      "group": "attribution",
+      "name": "يقول القرآن + ليس قرآنا",
+      "text": "يقول القرآن الكريم بوضوح إن الصدق منجاة لصاحبه",
+      "expected": [
+        "unsourced"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "NEG1",
+      "group": "attribution",
+      "name": "نزل القرآن",
+      "text": "نزل القرآن الكريم على مدى ثلاث وعشرين سنة",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "NEG2",
+      "group": "attribution",
+      "name": "عدد السور",
+      "text": "عدد سور القرآن الكريم مئة وأربع عشرة سورة",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "NEG3",
+      "group": "attribution",
+      "name": "تعليم القرآن",
+      "text": "تعليم القرآن للأطفال يبدأ في سن مبكرة في كثير من البلدان",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "NEG4",
+      "group": "attribution",
+      "name": "سورة كموضوع",
+      "text": "سورة البقرة أطول سورة في المصحف الشريف",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "NEG5",
+      "group": "attribution",
+      "name": "الآيات كموضوع",
+      "text": "تتناول الآيات المكية موضوعات العقيدة في الغالب",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "NEG6",
+      "group": "attribution",
+      "name": "كتاب الله كموضوع",
+      "text": "حفظ كتاب الله غاية يسعى إليها كثير من الشباب",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "EDGE1",
+      "group": "attribution",
+      "name": "في سورة + ليس قرآنا",
+      "text": "في سورة البقرة: من جد وجد ومن زرع حصد",
+      "expected": [
+        "uncovered"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "EDGE2",
+      "group": "attribution",
+      "name": "استنباط مع كلمة القرآن",
+      "text": "وهذا يدل على أن القرآن يأمر بترك العمل يوم الجمعة",
+      "expected": [
+        "expert"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "EDGE3",
+      "group": "attribution",
+      "name": "حكم مع كلمة القرآن",
+      "text": "ما حكم قراءة القرآن بغير وضوء",
+      "expected": [
+        "expert"
+      ],
+      "readiness": 0
+    },
+    {
+      "id": "M1",
+      "group": "manual-2026-10-04",
+      "name": "نص قرآني صحيح",
+      "text": "فإن مع العسر يسرا إن مع العسر يسرا",
+      "expected": [
+        "verified"
+      ]
+    },
+    {
+      "id": "M2",
+      "group": "manual-2026-10-04",
+      "name": "تحريف كلمة داخل نص قرآني",
+      "text": "فإن مع الحزن يسرا إن مع العسر يسرا",
+      "expected": [
+        "review"
+      ]
+    },
+    {
+      "id": "M3",
+      "group": "manual-2026-10-04",
+      "name": "نص قرآني صحيح مع استنتاج مضاف",
+      "text": "إن مع العسر يسرا وهذا يعني أن كل مشكلة ستنتهي فورا",
+      "expected": [
+        "expert"
+      ]
+    },
+    {
+      "id": "M4",
+      "group": "manual-2026-10-04",
+      "name": "عبارة غير موجودة منسوبة صراحة إلى القرآن",
+      "text": "قال الله تعالى من جد وجد ومن زرع حصد",
+      "expected": [
+        "unsourced"
+      ]
+    },
+    {
+      "id": "M5",
+      "group": "manual-2026-10-04",
+      "name": "جزء صحيح وجزء محرف مع النسبة إلى الله تعالى",
+      "text": "قال الله تعالى فإن مع الحزن يسرا إن مع العسر يسرا",
+      "expected": [
+        "review"
+      ]
+    },
+    {
+      "id": "M6",
+      "group": "manual-2026-10-04",
+      "name": "كتابة مستخدم عادية بلا تشكيل ولا همزات",
+      "text": "قال الله تعالى انا اعطيناك الكوثر فصل لربك وانحر",
+      "expected": [
+        "verified"
+      ]
+    },
+    {
+      "id": "W1",
+      "group": "spelling",
+      "name": "سورة كاملة بلا تشكيل ولا همزات",
+      "text": "قل هو الله احد الله الصمد لم يلد ولم يولد ولم يكن له كفوا احد",
+      "expected": [
+        "verified"
+      ]
+    }
+  ]
+}
