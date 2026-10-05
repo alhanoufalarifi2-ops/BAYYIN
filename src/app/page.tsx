@@ -8,7 +8,7 @@ import { SourceAttribution } from "@/components/layout/SourceAttribution";
 import { ScopeNotice } from "@/components/layout/ScopeNotice";
 import { Brand } from "@/components/layout/Brand";
 import { Button } from "@/components/ui/Button";
-import { IconBook, IconPlug, IconSearch } from "@/components/ui/Icons";
+import { IconBook, IconInfo, IconPlug, IconSearch } from "@/components/ui/Icons";
 import { runVerification } from "@/lib/verify/engine";
 import { buildDemoRun } from "@/lib/data/demo-case";
 import { getSourceProvider } from "@/lib/sources/provider";
@@ -90,8 +90,17 @@ export default function HomePage() {
               rows={9}
               dir="rtl"
               placeholder="الصق هنا المحتوى الذي تريد التحقق منه قبل نشره…"
+              aria-describedby="content-hint"
               className="w-full resize-y rounded-xl bg-surface/60 p-4 text-[15px] leading-[2] text-ink outline-none transition-colors duration-200 placeholder:text-ink-muted focus:bg-surface"
             />
+
+            <p
+              id="content-hint"
+              className="mt-2 flex items-start gap-1.5 px-1 text-[13.5px] leading-relaxed text-ink-soft"
+            >
+              <IconInfo width={14} height={14} className="mt-1 shrink-0 text-accent" />
+              لضمان دقة التحقق، يُرجى إدخال نص لا يقل عن 6 كلمات.
+            </p>
 
             <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
               <span className="num text-[14px] text-ink-muted">
